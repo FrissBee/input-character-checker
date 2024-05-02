@@ -1,18 +1,23 @@
 <!DOCTYPE html>
 <html lang="de">
   <head>
-    <meta charset="UTF-8">
-    <meta content="width=device-width,initial-scale=1" name="viewport">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Input Character Checker</title>
 
-    
-    <script defer="defer" src="./assets/js/input-character-checker_1.0.0.js"></script>
+    <!-- 1. Import "input-input-character-checker.js" file -->
+    <script src="./assets/js/input-character-checker_1.0.0.js" defer></script>
 
-    
-    <script defer="defer" src="./assets/js/my-javascript.js"></script>
+    <!-- 2. Implement your own JavaScript file -->
+    <script src="./assets/js/my-javascript.js" defer></script>
 
-    
     <style>
+      /* For this demo  */
+      *,
+      html {
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+      }
       body {
         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         font-size: 20px;
@@ -32,6 +37,7 @@
         max-width: 900px;
         justify-content: center;
         margin: 40px auto 140px auto;
+        padding: 8px;
       }
       section {
         width: 100%;
@@ -57,6 +63,13 @@
         cursor: pointer;
         border: 1px solid #6c757d;
       }
+
+      /* For 11. Example */
+      input-character-checker.demo_8::part(textfield) {
+        height: 40px;
+        width: 50px;
+        padding: 2px;
+      }
     </style>
   </head>
   <body>
@@ -64,61 +77,163 @@
       <div class="top">
         <div class="container-top">
           <h1>Input Character Checker</h1>
-          <p>Download on <a href="https://github.com/FrissBee/input-character-checker" rel="noopener noreferrer" target="_blank">GitHub</a></p>
-          <p>Created by <a href="https://frissbee.de/" rel="noopener noreferrer" target="_blank">FrissBee.de</a></p>
+          <p>Download on <a href="https://github.com/FrissBee/input-character-checker" target="_blank" rel="noopener noreferrer">GitHub</a></p>
+          <p>Created by <a href="https://frissbee.de/" target="_blank" rel="noopener noreferrer">FrissBee.de</a></p>
         </div>
       </div>
 
       <div class="container py-5">
-        
+        <!-- ===========================================
+        EXAMPLES 
+        =========================================== -->
         <h2>Examples</h2>
-        <p>See by example 3. + 5. + 6. in the console when entering in a text field.</p>
+        <p>See by example 3. + 5. + 6. + 11. in the console when entering in a text field.</p>
 
         <h3>1. Default <code>textarea</code></h3>
         <input-character-checker></input-character-checker>
 
-        <hr>
+        <hr />
 
         <h3>2. Default <code>input</code></h3>
         <input-character-checker input-field="input"></input-character-checker>
 
-        <hr>
+        <hr />
 
         <h3>3. With attributes <code>textarea</code></h3>
-        <input-character-checker input-field="textarea" class="demo_1" placeholder-field="Enter something" length-character="20" bg-color-bar="#dbdbdb" bg-color-danger="#20961e" bg-color-success="#a81111" field-height="180px"></input-character-checker>
+        <input-character-checker
+          class="demo_1"
+          length-character="20"
+          input-field="textarea"
+          placeholder-field="Enter something"
+          field-height="180px"
+          bg-color-bar="#dbdbdb"
+          bg-color-success="#a81111"
+          bg-color-danger="#20961e"
+        ></input-character-checker>
 
-        <hr>
+        <hr />
 
         <h3>4. With attributes <code>input</code> and message text and individual progress bar with JavaScript</h3>
-        <input-character-checker input-field="input" class="demo_2" placeholder-field="Enter your password" length-character="8" color-message-danger="#ab0f0f" display-message="block" text-message-success="Enter your password" border-radius-bar="1rem" height-bar="20px"></input-character-checker>
+        <input-character-checker
+          class="demo_2"
+          length-character="8"
+          input-field="input"
+          placeholder-field="Enter your password"
+          height-bar="20px"
+          border-radius-bar="1rem"
+          display-message="block"
+          text-message-success="Enter your password"
+          color-message-danger="#ab0f0f"
+        ></input-character-checker>
 
-        <hr>
+        <hr />
 
         <h3>5. With attributes <code>input:text</code> and message, no progress bar</h3>
-        <input-character-checker input-field="input" class="demo_3" placeholder-field="Here your text" length-character="12" color-message-danger="#fa0505" display-message="block" text-message-success="There's still room for improvement" color-message-success="#2e8ad1" display-bar="hide" font-size-message="14px" text-message-danger="Arrrg... too much letters"></input-character-checker>
+        <input-character-checker
+          class="demo_3"
+          length-character="12"
+          input-field="input"
+          placeholder-field="Here your text"
+          display-message="block"
+          text-message-success="There's still room for improvement"
+          text-message-danger="Arrrg... too much letters"
+          color-message-success="#2e8ad1"
+          color-message-danger="#fa0505"
+          font-size-message="14px"
+          display-bar="hide"
+        ></input-character-checker>
 
         <div style="margin-top: 20px">
           <button class="btn btn-reset btn-reset-1">reset input</button>
         </div>
 
-        <hr>
+        <hr />
 
         <h3>6. With attributes <code>input:text</code> no count output</h3>
-        <input-character-checker input-field="input" class="demo_4" placeholder-field="Write something" bg-color-danger="#c77058" bg-color-success="#5891c7" display-count-output="hide"></input-character-checker>
+        <input-character-checker
+          class="demo_4"
+          input-field="input"
+          placeholder-field="Write something"
+          bg-color-success="#5891c7"
+          bg-color-danger="#c77058"
+          display-count-output="hide"
+        ></input-character-checker>
 
         <div style="margin-top: 20px">
           <button class="btn btn-reset btn-reset-2">reset input</button>
         </div>
 
-        <hr>
+        <hr />
 
         <h3>7. With attributes <code>input:text</code> only numbers</h3>
-        <input-character-checker input-field="input" class="demo_5" placeholder-field="only numbers here..."></input-character-checker>
+        <input-character-checker class="demo_5" input-field="input" placeholder-field="only numbers here..."></input-character-checker>
 
-        <hr>
+        <hr />
 
         <h3>8. With attributes <code>input:text</code> character limit</h3>
-        <input-character-checker input-field="input" length-character="4" color-message-danger="#fa0505" display-message="block" text-message-success="Enter your text" color-message-success="#2e8ad1" text-message-danger="Input maximum reached." char-limit="on"></input-character-checker>
+        <input-character-checker
+          input-field="input"
+          length-character="4"
+          display-message="block"
+          text-message-success="Enter your text"
+          text-message-danger="Input maximum reached."
+          color-message-success="#2e8ad1"
+          color-message-danger="#fa0505"
+          char-limit="on"
+        ></input-character-checker>
+
+        <hr />
+
+        <h3>9. <code>input:text</code> Check if text is a valid email address</h3>
+        <input-character-checker
+          class="demo_6"
+          input-field="input"
+          length-character="400"
+          display-bar="hide"
+          display-count-output="hide"
+          type-input="email"
+        ></input-character-checker>
+        <div style="margin-top: 20px">
+          <button class="btn btn-reset btn-is-email">check if is a valid email address</button>
+        </div>
+        <div class="is-email-output"></div>
+
+        <hr />
+
+        <h3>10. <code>input:text</code> set input type (here to "password")</h3>
+        <input-character-checker
+          class="demo_7"
+          input-field="input"
+          length-character="400"
+          display-bar="hide"
+          display-count-output="hide"
+          type-input="password"
+        ></input-character-checker>
+
+        <hr />
+
+        <h3>11. <code>input:text</code> set input type (here to "color")</h3>
+        <input-character-checker
+          class="demo_8"
+          input-field="input"
+          length-character="400"
+          display-bar="hide"
+          display-count-output="hide"
+          type-input="color"
+        ></input-character-checker>
+
+        <hr />
+
+        <h3>12. <code>input:text</code> get slug from text</h3>
+        <input-character-checker
+          class="demo_9"
+          input-field="input"
+          length-character="400"
+          display-bar="hide"
+          display-count-output="hide"
+          placeholder-field="Enter text with whitespaces, umlauts and special characters"
+        ></input-character-checker>
+        <div class="get-slug-output"></div>
       </div>
     </main>
   </body>

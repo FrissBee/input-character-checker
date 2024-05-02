@@ -12,7 +12,7 @@ It is possible to display several Input Character Checkers on one page. They are
 
 This repo contains 8 examples.
 
-**See the comments in the files for more information.**
+**See the comments in the files and the examples for more information.**
 
 # Preview / Demo
 
@@ -92,21 +92,19 @@ That`s it.
 - `display-bar` => Hides the progress bar with the value **`hide`**.
 - `display-count-output` => Hides the count text with the value **`hide`**.
 - `char-limit` => No more characters can be entered in the text field than are specified via the `length-character` attribute when the value is set to **`on`**.
+- `type-input` => specifies the type of text field if the attribute `input-field` is set to `input`. The values can be all HTML types.
+- `required-field` => add the attribute `required` to the text field. Value is **`required`**.
 
 # Props
 
-- `textareaField`
-
-The text field can be accessed with `textareaField`, for example to add an event listener to get the value of the text field.
+- `textField` => The text field can be accessed with `textField`, for example to add an event listener to get the value of the text field. With `textField` you have control over the text field. **You can also set HTML attributes such as `name` or `id`. Example: `document.querySelector('input-character-checker').textField.name = "my-name"`**
 
 # Functions
 
-- `setInputLength(number)`
-- `resetTextField()`
-
-The `setInputLength(number)` function can be used to specify or change the number of letters. See the 7. example.
-
-The text field, the counter display and the progress bar can be reset with `resetTextField()`. See 5. and 6. example.
+- `setInputLength(number)` => The `setInputLength(number)` function can be used to specify or change the number of letters. See the 7. example.
+- `resetTextField()` => The text field, the counter display and the progress bar can be reset with `resetTextField()`. See 5. and 6. example.
+- `isEmailAddress()` => Checks whether the text in the text field is a valid email address. Returns true or false. See 9. example.
+- `toSlug()` => generates a slug from the text. See 12. example.
 
 # Example for all attributes (default values):
 
@@ -130,13 +128,14 @@ The text field, the counter display and the progress bar can be reset with `rese
   display-bar=""
   display-count-output=""
   char-limit=""
+  type-input="text"
+  required-field=""
 ></input-character-checker>
 ```
 
-# Set attributes with JavaScript
+# With JavaScript
 
-You can also set the attributes with JavaScript.
-Do this with the setAttribute() method.
+You can also set the attributes with JavaScript. Do this with the `setAttribute()` method. To get the value of an attribute use the `getAttribute()` method.
 
 Example:
 
@@ -145,9 +144,11 @@ const inputCharacterChecker = document.querySelector('input-character-checker.my
 inputCharacterChecker.setAttribute('input-field', 'input');
 ```
 
+**For more see the `my-javascript.js` file**.
+
 # More design with CSS
 
-If you want to have more influence on the design, you can do this in your CSS file with the pseudo-element ::part() (documentation).
+If you want to have more influence on the design, you can do this in your CSS file with the pseudo-element `::part()` ([documentation](https://developer.mozilla.org/en-US/docs/Web/CSS/::part)).
 
 You can design:
 
@@ -161,9 +162,11 @@ Here are some simple examples:
 input-character-checker::part(textfield) {
   border: 2px solid red;
 }
+
 input-character-checker::part(count-output) {
   font-size: 12px;
 }
+
 input-character-checker::part(message) {
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }

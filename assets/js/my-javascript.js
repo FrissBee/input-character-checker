@@ -4,12 +4,15 @@
   // =========================
   // 	DOM
   const DOM = {};
-  // 3. - 8. Example: select the "input-character-checker"
+  // 3. - 9. Example: select the "input-character-checker"
   DOM.inputCharacterChecker_Demo_1 = document.querySelector('input-character-checker.demo_1');
   DOM.inputCharacterChecker_Demo_2 = document.querySelector('input-character-checker.demo_2');
   DOM.inputCharacterChecker_Demo_3 = document.querySelector('input-character-checker.demo_3');
   DOM.inputCharacterChecker_Demo_4 = document.querySelector('input-character-checker.demo_4');
   DOM.inputCharacterChecker_Demo_5 = document.querySelector('input-character-checker.demo_5');
+  DOM.inputCharacterChecker_Demo_6 = document.querySelector('input-character-checker.demo_6');
+  DOM.inputCharacterChecker_Demo_8 = document.querySelector('input-character-checker.demo_8');
+  DOM.inputCharacterChecker_Demo_9 = document.querySelector('input-character-checker.demo_9');
 
   // 5. Example: select the reset button
   DOM.btnReset_1 = document.querySelector('.btn-reset-1');
@@ -17,21 +20,35 @@
   // 6. Example: select the reset button
   DOM.btnReset_2 = document.querySelector('.btn-reset-2');
 
+  // 9. Example: select check is email button & output
+  DOM.btnIsEmail = document.querySelector('.btn-is-email');
+  DOM.isEmailOutput = document.querySelector('.is-email-output');
+
+  // 12. Example: select check is email button & output
+  DOM.getSlugOutput = document.querySelector('.get-slug-output');
+
   // =========================
   // 	INIT
   const init = () => {
     // 3. - 7. Example: add the custom event to the textfield
-    DOM.inputCharacterChecker_Demo_1.textareaField.addEventListener('event-input-textfield', handleTextfieldValue_1);
-    DOM.inputCharacterChecker_Demo_2.textareaField.addEventListener('event-input-textfield', handleTextfieldValue_2);
-    DOM.inputCharacterChecker_Demo_3.textareaField.addEventListener('event-input-textfield', handleTextfieldValue_1);
-    DOM.inputCharacterChecker_Demo_4.textareaField.addEventListener('event-input-textfield', handleTextfieldValue_1);
-    DOM.inputCharacterChecker_Demo_5.textareaField.addEventListener('event-input-textfield', handleTextfieldValue_5);
+    DOM.inputCharacterChecker_Demo_1.textField.addEventListener('event-input-textfield', handleTextfieldValue_1);
+    DOM.inputCharacterChecker_Demo_2.textField.addEventListener('event-input-textfield', handleTextfieldValue_2);
+    DOM.inputCharacterChecker_Demo_3.textField.addEventListener('event-input-textfield', handleTextfieldValue_1);
+    DOM.inputCharacterChecker_Demo_4.textField.addEventListener('event-input-textfield', handleTextfieldValue_1);
+    DOM.inputCharacterChecker_Demo_5.textField.addEventListener('event-input-textfield', handleTextfieldValue_5);
+    DOM.inputCharacterChecker_Demo_8.textField.addEventListener('event-input-textfield', handleTextfieldValue_1);
 
     // 5. Example: add the event to the reset button
     DOM.btnReset_1.addEventListener('click', resetTextField_1);
 
     // 6. Example: add the event to the reset button
     DOM.btnReset_2.addEventListener('click', resetTextField_2);
+
+    // 9. Example: add the event to is email button
+    DOM.btnIsEmail.addEventListener('click', checkIfIsEmail);
+
+    // 12. Example: add the event to get-slug button
+    DOM.inputCharacterChecker_Demo_9.textField.addEventListener('event-input-textfield', getSlug);
   };
 
   // =========================
@@ -111,6 +128,24 @@
         DOM.inputCharacterChecker_Demo_5.setInputLength(e.currentTarget.value.length);
       }
     }
+  };
+
+  // 9. Example: check if is email address
+  const checkIfIsEmail = (e) => {
+    if (DOM.inputCharacterChecker_Demo_6.isEmailAddress()) {
+      // do somethings...
+      DOM.inputCharacterChecker_Demo_6.textField.style.border = '';
+      DOM.isEmailOutput.innerText = 'It is a valid email address';
+    } else {
+      // do somethings...
+      DOM.inputCharacterChecker_Demo_6.textField.style.border = '1px solid red';
+      DOM.isEmailOutput.innerText = 'It is NOT a valid email address';
+    }
+  };
+
+  // 12. Example: get slug
+  const getSlug = (e) => {
+    DOM.getSlugOutput.innerText = DOM.inputCharacterChecker_Demo_9.toSlug();
   };
 
   init();
