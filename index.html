@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width,initial-scale=1" name="viewport">
+    <title>Input Character Checker</title>
+
+    
+    <script defer="defer" src="./assets/js/input-character-checker_1.0.0.js"></script>
+
+    
+    <script defer="defer" src="./assets/js/my-javascript.js"></script>
+
+    
+    <style>
+      body {
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: 20px;
+        margin: 0;
+        padding: 0;
+      }
+      .top {
+        padding: 10px;
+        background-color: #f5f5f5;
+      }
+      .container-top {
+        max-width: 900px;
+        justify-content: center;
+        margin: 0 auto;
+      }
+      .container {
+        max-width: 900px;
+        justify-content: center;
+        margin: 40px auto 140px auto;
+      }
+      section {
+        width: 100%;
+      }
+      hr {
+        margin: 40px 0;
+      }
+      code {
+        color: red;
+        background-color: rgb(233, 233, 233);
+        padding: 0 4px;
+        border-radius: 4px;
+      }
+      .btn-reset {
+        text-align: center;
+        text-decoration: none;
+        vertical-align: middle;
+        padding: 8px;
+        background-color: rgb(50, 122, 230);
+        border-radius: 8px;
+        color: rgb(255, 255, 255);
+        font-size: 20px;
+        cursor: pointer;
+        border: 1px solid #6c757d;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="top">
+        <div class="container-top">
+          <h1>Input Character Checker</h1>
+          <p>Download on <a href="#" rel="noopener noreferrer" target="_blank">GitHub</a></p>
+          <p>Created by <a href="https://frissbee.de/" rel="noopener noreferrer" target="_blank">FrissBee.de</a></p>
+        </div>
+      </div>
+
+      <div class="container py-5">
+        
+        <h2>Examples</h2>
+        <p>See by example 3. + 5. + 6. in the console when entering in a text field.</p>
+
+        <h3>1. Default <code>textarea</code></h3>
+        <input-character-checker></input-character-checker>
+
+        <hr>
+
+        <h3>2. Default <code>input</code></h3>
+        <input-character-checker input-field="input"></input-character-checker>
+
+        <hr>
+
+        <h3>3. With attributes <code>textarea</code></h3>
+        <input-character-checker input-field="textarea" class="demo_1" placeholder-field="Enter something" length-character="20" bg-color-bar="#dbdbdb" bg-color-danger="#20961e" bg-color-success="#a81111" field-height="180px"></input-character-checker>
+
+        <hr>
+
+        <h3>4. With attributes <code>input</code> and message text and individual progress bar with JavaScript</h3>
+        <input-character-checker input-field="input" class="demo_2" placeholder-field="Enter your password" length-character="8" color-message-danger="#ab0f0f" display-message="block" text-message-success="Enter your password" border-radius-bar="1rem" height-bar="20px"></input-character-checker>
+
+        <hr>
+
+        <h3>5. With attributes <code>input:text</code> and message, no progress bar</h3>
+        <input-character-checker input-field="input" class="demo_3" placeholder-field="Here your text" length-character="12" color-message-danger="#fa0505" display-message="block" text-message-success="There's still room for improvement" color-message-success="#2e8ad1" display-bar="hide" font-size-message="14px" text-message-danger="Arrrg... too much letters"></input-character-checker>
+
+        <div style="margin-top: 20px">
+          <button class="btn btn-reset btn-reset-1">reset input</button>
+        </div>
+
+        <hr>
+
+        <h3>6. With attributes <code>input:text</code> no count output</h3>
+        <input-character-checker input-field="input" class="demo_4" placeholder-field="Write something" bg-color-danger="#c77058" bg-color-success="#5891c7" display-count-output="hide"></input-character-checker>
+
+        <div style="margin-top: 20px">
+          <button class="btn btn-reset btn-reset-2">reset input</button>
+        </div>
+
+        <hr>
+
+        <h3>7. With attributes <code>input:text</code> only numbers</h3>
+        <input-character-checker input-field="input" class="demo_5" placeholder-field="only numbers here..."></input-character-checker>
+
+        <hr>
+
+        <h3>8. With attributes <code>input:text</code> character limit</h3>
+        <input-character-checker input-field="input" length-character="4" color-message-danger="#fa0505" display-message="block" text-message-success="Enter your text" color-message-success="#2e8ad1" text-message-danger="Input maximum reached." char-limit="on"></input-character-checker>
+      </div>
+    </main>
+  </body>
+</html>
