@@ -1,6 +1,6 @@
 # Input Character Checker
 
-With this repo you can easily and quickly create a text field that counts the letters and can do a lot more. The Input Character Checker is very flexible to use.
+With this repo you can easily and quickly create a text field that counts the letters and can do a lot more.
 
 The number of letters entered is displayed via a progress bar and a counter (both can be switched off).
 
@@ -10,9 +10,15 @@ You can choose whether you want to use an `input:text` or a `textarea` as an tex
 
 It is possible to display several Input Character Checkers on one page. They are completely independent of each other.
 
-This repo contains 12 examples.
+This repo contains 13 examples.
 
 **See the comments in the files and the examples for more information.**
+
+### Notice
+
+You can also use the Input Character Checker as a "normal" text field and use the functions (see below) so that you do not have to implement them again and again in different projects.
+
+The Input Character Checker is very flexible to use.
 
 # Preview / Demo
 
