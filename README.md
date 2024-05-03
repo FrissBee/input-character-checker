@@ -122,7 +122,7 @@ Only letters can be entered in the text field. Returns `true` or `false`. Simila
 
 #### `onlyNumbersAndLetters()`
 
-Only letters can be entered in the text field. Returns `true` or `false`. Similar to `onlyNumbers()`.
+Only numbers and letters can be entered in the text field. Returns `true` or `false`. Similar to `onlyNumbers()`.
 
 #### `checkNumber()`
 
