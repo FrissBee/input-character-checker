@@ -98,14 +98,51 @@ That`s it.
 
 # Props
 
-- `textField` => The text field can be accessed with `textField`, for example to add an event listener to get the value of the text field. With `textField` you have control over the text field. **You can also set HTML attributes such as `name` or `id`. Example: `document.querySelector('input-character-checker').textField.name = "my-name"`**
+#### `textField`
+
+The text field can be accessed with `textField`, for example to add an event listener to get the value of the text field. With `textField` you have control over the text field. **You can also set HTML attributes such as `name` or `id`. Example: `document.querySelector('input-character-checker').textField.name = "my-name"`**
 
 # Functions
 
-- `setInputLength(number)` => The `setInputLength(number)` function can be used to specify or change the number of letters. See the 7. example.
-- `resetTextField()` => The text field, the counter display and the progress bar can be reset with `resetTextField()`. See 5. and 6. example.
-- `isEmailAddress()` => Checks whether the text in the text field is a valid email address. Returns true or false. See 9. example.
-- `toSlug()` => generates a slug from the text. See 12. example.
+#### `setInputLength(number)`
+
+This function can be used to specify or change the number of letters. See the 7. example.
+
+#### `resetTextField()`
+
+The text field, the counter display and the progress bar can be reset with `resetTextField()`. See 5. and 6. example.
+
+#### `onlyNumbers()`
+
+Only numbers can be entered in the text field. Returns `true` or `false`. See 13. example.
+
+#### `onlyLetters()`
+
+Only letters can be entered in the text field. Returns `true` or `false`. Similar to `onlyNumbers()`.
+
+#### `onlyNumbersAndLetters()`
+
+Only letters can be entered in the text field. Returns `true` or `false`. Similar to `onlyNumbers()`.
+
+#### `checkNumber()`
+
+Checks whether the input contains a number. Can be used for a password input field, for example. Returns `true` or `false`. Similar to `onlyNumbers()`.
+
+#### `checkSpecial()`
+
+Checks whether the input contains a special character. Can be used for a password input field, for example. Returns `true` or `false`. Similar to `onlyNumbers()`.
+
+#### `checkSpecialAndNumbers()`
+
+Checks whether the input contains a special character and a number. Can be used for a password input field, for example. Returns `true` or `false`. Similar to `onlyNumbers()`.
+
+#### `isEmailAddress()`
+
+Checks whether the text in the text field is a valid email address. Returns `true` or `false`. See 9. example.
+
+#### `toSlug()`
+
+Generates a slug from the text. See 12. example.
 
 # Example for all attributes (default values):
 

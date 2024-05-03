@@ -4,7 +4,7 @@
   // =========================
   // 	DOM
   const DOM = {};
-  // 3. - 9. Example: select the "input-character-checker"
+  // 3. - 13. Example: select the "input-character-checker"
   DOM.inputCharacterChecker_Demo_1 = document.querySelector('input-character-checker.demo_1');
   DOM.inputCharacterChecker_Demo_2 = document.querySelector('input-character-checker.demo_2');
   DOM.inputCharacterChecker_Demo_3 = document.querySelector('input-character-checker.demo_3');
@@ -13,6 +13,7 @@
   DOM.inputCharacterChecker_Demo_6 = document.querySelector('input-character-checker.demo_6');
   DOM.inputCharacterChecker_Demo_8 = document.querySelector('input-character-checker.demo_8');
   DOM.inputCharacterChecker_Demo_9 = document.querySelector('input-character-checker.demo_9');
+  DOM.inputCharacterChecker_Demo_10 = document.querySelector('input-character-checker.demo_10');
 
   // 5. Example: select the reset button
   DOM.btnReset_1 = document.querySelector('.btn-reset-1');
@@ -53,6 +54,9 @@
 
     // 12. Example: add the event to get-slug button
     DOM.inputCharacterChecker_Demo_9.textField.addEventListener('event-input-textfield', getSlug);
+
+    // 13. Example: add the event to only numbers with the onlyNumbers() method
+    DOM.inputCharacterChecker_Demo_10.textField.addEventListener('event-input-textfield', allowOnlyNumbers);
   };
 
   // =========================
@@ -117,7 +121,7 @@
 
   // 7. Example: only numbers
   const isNumber = (input) => {
-    var regex = /^[-+]?[0-9]+$/;
+    const regex = /^[-+]?[0-9]+$/;
     return regex.test(input);
   };
 
@@ -156,6 +160,16 @@
   // 12. Example: get slug
   const getSlug = (e) => {
     DOM.getSlugOutput.innerText = DOM.inputCharacterChecker_Demo_9.toSlug();
+  };
+
+  // 13. Example: only numbers with the onlyNumbers() method
+  const allowOnlyNumbers = (e) => {
+    const check = DOM.inputCharacterChecker_Demo_10.onlyNumbers();
+    if (check === false) {
+      DOM.inputCharacterChecker_Demo_10.setAttribute('text-message-success', 'Please enter only numbers');
+    } else {
+      DOM.inputCharacterChecker_Demo_10.setAttribute('text-message-success', '');
+    }
   };
 
   init();
