@@ -1,6 +1,6 @@
 # Input Character Checker
 
-With this repo you can easily and quickly create a text field that counts the letters.
+With this repo you can easily and quickly create a text field that counts the letters and can do a lot more. The Input Character Checker is very flexible to use.
 
 The number of letters entered is displayed via a progress bar and a counter (both can be switched off).
 
