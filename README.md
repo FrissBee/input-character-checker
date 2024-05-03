@@ -10,7 +10,7 @@ You can choose whether you want to use an `input:text` or a `textarea` as an tex
 
 It is possible to display several Input Character Checkers on one page. They are completely independent of each other.
 
-This repo contains 8 examples.
+This repo contains 12 examples.
 
 **See the comments in the files and the examples for more information.**
 
