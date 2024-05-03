@@ -36,7 +36,7 @@ Insert the `<input-character-checker></input-character-checker>` tag in the desi
 
 **4. Step - customize the Input Character Checker**
 
-To customize the contact form according to your wishes change the corresponding attributes in the `<input-character-checker></input-character-checker>` HTML tag.
+To customize the Input Character Checker according to your wishes change the corresponding attributes in the `<input-character-checker></input-character-checker>` HTML tag.
 
 Only the attributes that are to be changed need to be specified.
 
