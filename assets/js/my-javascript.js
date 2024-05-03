@@ -24,6 +24,10 @@
   DOM.btnIsEmail = document.querySelector('.btn-is-email');
   DOM.isEmailOutput = document.querySelector('.is-email-output');
 
+  // 11. Example: select color code & color output
+  DOM.colorCode = document.querySelector('.color-code');
+  DOM.colorOutput = document.querySelector('.color-output');
+
   // 12. Example: select check is email button & output
   DOM.getSlugOutput = document.querySelector('.get-slug-output');
 
@@ -36,7 +40,7 @@
     DOM.inputCharacterChecker_Demo_3.textField.addEventListener('event-input-textfield', handleTextfieldValue_1);
     DOM.inputCharacterChecker_Demo_4.textField.addEventListener('event-input-textfield', handleTextfieldValue_1);
     DOM.inputCharacterChecker_Demo_5.textField.addEventListener('event-input-textfield', handleTextfieldValue_5);
-    DOM.inputCharacterChecker_Demo_8.textField.addEventListener('event-input-textfield', handleTextfieldValue_1);
+    DOM.inputCharacterChecker_Demo_8.textField.addEventListener('event-input-textfield', handleTextfieldValue_8);
 
     // 5. Example: add the event to the reset button
     DOM.btnReset_1.addEventListener('click', resetTextField_1);
@@ -141,6 +145,12 @@
       DOM.inputCharacterChecker_Demo_6.textField.style.border = '1px solid red';
       DOM.isEmailOutput.innerText = 'It is NOT a valid email address';
     }
+  };
+
+  // 11. Example: set color output
+  const handleTextfieldValue_8 = (e) => {
+    DOM.colorCode.innerText = e.currentTarget.value;
+    DOM.colorOutput.style.backgroundColor = e.currentTarget.value;
   };
 
   // 12. Example: get slug

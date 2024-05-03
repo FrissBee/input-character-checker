@@ -77,7 +77,8 @@ That`s it.
 - `input-field` => default is an `textarea`. If set to **`input`** you have an `input:text` field.
 - `length-character` => Up to how many letters should only be entered.
 - `placeholder-field` => placeholder text for the text field
-- `field-height` => height of the `textarea` field.
+- `value-field` => the text to be displayed in the text field at the beginning.
+- `height-field` => height of the `textarea` field.
 - `bg-color-bar` => background color for the progress bar.
 - `bg-color-success` => background color for the progress bar for the number of letters entered
 - `bg-color-danger` => background color for the progress bar for the number of letters entered if too many are entered.
@@ -113,7 +114,8 @@ That`s it.
   input-field=""
   length-character="8"
   placeholder-field=""
-  field-height="80px"
+  value-field=""
+  height-field="80px"
   bg-color-bar="#f5f5f5"
   bg-color-success="#3fa5f2"
   bg-color-danger="#a81111"

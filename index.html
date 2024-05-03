@@ -63,6 +63,12 @@
         cursor: pointer;
         border: 1px solid #6c757d;
       }
+      .d-flex {
+        display: flex;
+      }
+      .pe-20 {
+        padding-right: 20px;
+      }
 
       /* For 11. Example */
       input-character-checker.demo_8::part(textfield) {
@@ -87,7 +93,7 @@
         EXAMPLES 
         =========================================== -->
         <h2>Examples</h2>
-        <p>See by example 3. + 5. + 6. + 11. in the console when entering in a text field.</p>
+        <p>See by example 3. + 5. + 6. in the console when entering in the text field.</p>
 
         <h3>1. Default <code>textarea</code></h3>
         <input-character-checker></input-character-checker>
@@ -105,7 +111,7 @@
           length-character="20"
           input-field="textarea"
           placeholder-field="Enter something"
-          field-height="180px"
+          height-field="180px"
           bg-color-bar="#dbdbdb"
           bg-color-success="#a81111"
           bg-color-danger="#20961e"
@@ -175,6 +181,7 @@
           input-field="input"
           length-character="4"
           display-message="block"
+          height-bar="4px"
           text-message-success="Enter your text"
           text-message-danger="Input maximum reached."
           color-message-success="#2e8ad1"
@@ -204,8 +211,9 @@
         <input-character-checker
           class="demo_7"
           input-field="input"
-          length-character="400"
-          display-bar="hide"
+          length-character="8"
+          bg-color-success="linear-gradient(to right, red, yellow)"
+          bg-color-danger="linear-gradient(to right, #4de854, #0d9113)"
           display-count-output="hide"
           type-input="password"
         ></input-character-checker>
@@ -213,6 +221,11 @@
         <hr />
 
         <h3>11. <code>input:text</code> set input type (here to "color")</h3>
+        <div class="d-flex">
+          <div class="pe-20">Output:</div>
+          <div class="pe-20 color-code">#af3c3c</div>
+          <div class="color-output" style="height: 40px; width: 40px; border-radius: 4px; background-color: #af3c3c"></div>
+        </div>
         <input-character-checker
           class="demo_8"
           input-field="input"
@@ -220,6 +233,7 @@
           display-bar="hide"
           display-count-output="hide"
           type-input="color"
+          value-field="#af3c3c"
         ></input-character-checker>
 
         <hr />
