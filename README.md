@@ -20,11 +20,11 @@ You can also use the Input Character Checker as a "normal" text field and use th
 
 The Input Character Checker is very flexible to use.
 
-# Preview / Demo
+## Preview / Demo
 
 [You can view the demo here.](https://input-character-checker.frissbee.de).
 
-# Description
+## Description
 
 Implement the Input Character Checker in your project:
 
@@ -54,7 +54,7 @@ For example, change the text field from `textarea` to an `input:text` field:
 
 That`s it.
 
-# Quick view
+## Quick view
 
 ```html
 <!DOCTYPE html>
@@ -78,7 +78,7 @@ That`s it.
 </html>
 ```
 
-# All attributes
+## All attributes
 
 - `input-field` => default is an `textarea`. If set to **`input`** you have an `input:text` field.
 - `length-character` => Up to how many letters should only be entered.
@@ -102,13 +102,52 @@ That`s it.
 - `type-input` => specifies the type of text field if the attribute `input-field` is set to `input`. The values can be all HTML types.
 - `required-field` => add the attribute `required` to the text field. Value is **`required`**.
 
-# Props
+## Example for all attributes (default values):
+
+```html
+<input-character-checker
+  input-field=""
+  length-character="8"
+  placeholder-field=""
+  value-field=""
+  height-field="80px"
+  bg-color-bar="#f5f5f5"
+  bg-color-success="#3fa5f2"
+  bg-color-danger="#a81111"
+  height-bar="8px"
+  border-radius-bar="0.45rem"
+  display-message="none"
+  text-message-success=""
+  text-message-danger=""
+  color-message-success="#20961e"
+  color-message-danger="#20961e"
+  font-size-message="inherit"
+  display-bar=""
+  display-count-output=""
+  char-limit=""
+  type-input="text"
+  required-field=""
+></input-character-checker>
+```
+
+## Props
 
 #### `textField`
 
-The text field can be accessed with `textField`, for example to add an event listener to get the value of the text field. With `textField` you have control over the text field. **You can also set HTML attributes such as `name` or `id`. Example: `document.querySelector('input-character-checker').textField.name = "my-name"`**
+The text field can be accessed with `textField`, for example to add an event listener to get the value of the text field. Use the event `event-input-textfield` for this.
 
-# Functions
+Example:
+
+```js
+document.querySelector('input-character-checker').textField.addEventListener('event-input-textfield', (e) => {
+  // get the value of the text field:
+  const theValue = e.currentTarget.value;
+
+  // do somtehing...
+});
+```
+
+## Functions
 
 #### `setInputLength(number)`
 
@@ -150,35 +189,7 @@ Checks whether the text in the text field is a valid email address. Returns `tru
 
 Generates a slug from the text. See 12. example.
 
-# Example for all attributes (default values):
-
-```html
-<input-character-checker
-  input-field=""
-  length-character="8"
-  placeholder-field=""
-  value-field=""
-  height-field="80px"
-  bg-color-bar="#f5f5f5"
-  bg-color-success="#3fa5f2"
-  bg-color-danger="#a81111"
-  height-bar="8px"
-  border-radius-bar="0.45rem"
-  display-message="none"
-  text-message-success=""
-  text-message-danger=""
-  color-message-success="#20961e"
-  color-message-danger="#20961e"
-  font-size-message="inherit"
-  display-bar=""
-  display-count-output=""
-  char-limit=""
-  type-input="text"
-  required-field=""
-></input-character-checker>
-```
-
-# With JavaScript
+## With JavaScript
 
 You can also set the attributes with JavaScript. Do this with the `setAttribute()` method. To get the value of an attribute use the `getAttribute()` method.
 
@@ -191,7 +202,7 @@ inputCharacterChecker.setAttribute('input-field', 'input');
 
 **For more see the `my-javascript.js` file**.
 
-# More design with CSS
+## More design with CSS
 
 If you want to have more influence on the design, you can do this in your CSS file with the pseudo-element `::part()` ([documentation](https://developer.mozilla.org/en-US/docs/Web/CSS/::part)).
 
@@ -215,4 +226,86 @@ input-character-checker::part(count-output) {
 input-character-checker::part(message) {
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
+```
+
+## Input Character Checker with PHP `$_POST` & `$_GET`
+
+Unfortunately, this does not work the direct way.
+
+**The reason:** The Input Character Checker is created with Web Components and therefore the HTML is encapsulated via the [ShadowDOM](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_shadow_DOM).
+
+If you want to pass the value of the text field to PHP `$_POST` or `$_GET`, you can proceed as follows. This is admittedly a little "cumbersome", but it works.
+
+The idea is that the value is passed from the Input Character Checker to an `input:hidden` element. This means that the `<input-character-checker></input-character-checker>` tag does not necessarily have to be inside the `<form></form>` element - which can also be an advantage.
+
+Here is a (simplified) example for `$_POST`:
+
+**The PHP code**
+
+```php
+if($_POST){
+  var_dump($_POST);
+  echo $_POST['my-input-value'];
+
+  // do something with the value of $_POST['my-input-value']
+}
+
+```
+
+**The HTML code**
+
+```html
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <!-- 1. Import "input-character-checker_1.0.0" file -->
+    <script src="./assets/js/input-character-checker_1.0.0.js" defer></script>
+
+    <!-- 2. Implement your own JavaScript file -->
+    <script src="./assets/js/my-javascript.js" defer></script>
+  </head>
+  <body>
+    <main>
+      <!-- 3. Implement "input-character-checker" Tag -->
+      <input-character-checker
+        class="demo"
+        input-field="input"
+        length-character="40"
+        display-bar="hide"
+        display-count-output="hide"
+      ></input-character-checker>
+
+      <!-- 4. Implement the "form"-Tag and the "input:hidden" Field -->
+      <form method="post">
+        <input class="for-demo" type="hidden" name="my-input-value" value="<?= isset($_POST['my-input-value']) ? $_POST['my-input-value'] : '' ?>" />
+        <button class="btn btn-primary mt-4 btn-submit" type="submit">click</button>
+      </form>
+    </main>
+  </body>
+</html>
+```
+
+**The JavaScript code**
+
+```js
+'use strict';
+
+(() => {
+  const DOM = {};
+  DOM.demo = document.querySelector('.demo'); // => the <input-character-checker></input-character-checker> Element
+  DOM.forDemo = document.querySelector('.for-demo'); // => the "input:hidden" element
+  DOM.btnSubmit = document.querySelector('.btn-submit'); // => the "submit" button
+
+  const init = () => {
+    DOM.demo.textField.value = DOM.forDemo.value;
+
+    DOM.demo.textField.addEventListener('event-input-textfield', valueToHiddenElement);
+  };
+
+  const valueToHiddenElement = (e) => {
+    DOM.forDemo.value = e.currentTarget.value;
+  };
+
+  init();
+})();
 ```
