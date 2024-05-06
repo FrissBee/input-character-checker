@@ -234,7 +234,7 @@ Example:
 </input-character-checker>
 ```
 
-To add an Event Listener to the icon see **Props -> `iconField**`\*\*.
+To add an Event Listener to the icon see **Props -> `iconField`**.
 
 ## With JavaScript
 
