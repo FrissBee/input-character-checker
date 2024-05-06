@@ -158,7 +158,7 @@ document.querySelector('input-character-checker').textField.addEventListener('ev
 
 #### `iconField`
 
-The icon can be accessed with the prop `iconField` and thus an event listener can be added, for example. The value of the text field you get over `detail`. See 14. + 17. example.
+The icon can be accessed with the prop `iconField` and thus an event listener can be added, for example. Use the event `event-icon-button` for this. The value of the text field you get over `detail`. See 14. + 17. example.
 
 Example:
 
