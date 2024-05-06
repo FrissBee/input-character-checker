@@ -6,11 +6,11 @@ The number of letters entered is displayed via a progress bar and a counter (bot
 
 The design of the Input Character Checker can be customized.
 
-You can choose whether you want to use an `input:text` or a `textarea` as an text field.
+You can choose whether you want to use an `input:text` or a `textarea` as an text field. Both can be provided with or without an **icon** on the left or right side.
 
 It is possible to display several Input Character Checkers on one page. They are completely independent of each other.
 
-This repo contains 13 examples.
+This repo contains 17 examples and all the files you need to integrate the Input Character Checker into your project.
 
 **See the comments in the files and the examples for more information.**
 
@@ -46,7 +46,7 @@ To customize the Input Character Checker according to your wishes change the cor
 
 Only the attributes that are to be changed need to be specified.
 
-For example, change the text field from `textarea` to an `input:text` field:
+For example, change the text field from `textarea` (default) to an `input:text` field:
 
 ```html
 <input-character-checker input-field="input"></input-character-checker>
@@ -102,6 +102,12 @@ That`s it.
 - `type-input` => specifies the type of text field if the attribute `input-field` is set to `input`. The values can be all HTML types.
 - `required-field` => add the attribute `required` to the text field. Value is **`required`**.
 
+**For the Icons**
+
+- `with-icon` => If you want to use an icon for the text field, you can activate this with values **`left`** or **`right`** for the respective positioning.
+- `bg-icon` => to change the background of the icon. For example `#000000`;
+- `event-icon`=> If the icon is to be clickable like a button, this can be activated with **`on`**. To add an Event Listener to the icon see Props -> `iconField`.
+
 ## Example for all attributes (default values):
 
 ```html
@@ -127,6 +133,9 @@ That`s it.
   char-limit=""
   type-input="text"
   required-field=""
+  with-icon=""
+  bg-icon="#f1f1f1"
+  event-icon=""
 ></input-character-checker>
 ```
 
@@ -143,7 +152,23 @@ document.querySelector('input-character-checker').textField.addEventListener('ev
   // get the value of the text field:
   const theValue = e.currentTarget.value;
 
-  // do somtehing...
+  // do something...
+});
+```
+
+#### `iconField`
+
+Auf das Icon kann mit der prop `iconField` zugegriffen werden und somit z. B. ein Event Listener hinzugefügt werden. The value of the text field you get over `detail`. Siehe Beispiel 14. + 17.
+
+Example:
+
+```js
+document.querySelector('input-character-checker').iconField.addEventListener('event-icon-button', (e) => {
+  console.log('Input value:', e.detail);
+  console.log('Input length:', e.detail.length);
+  console.log('Input icon container:', e.currentTarget);
+
+  // do something...
 });
 ```
 
@@ -189,6 +214,28 @@ Checks whether the text in the text field is a valid email address. Returns `tru
 
 Generates a slug from the text. See 12. example.
 
+## Using icons
+
+It is very simple.
+
+1. Implement your desired icon within the **`<input-character-checker> [ HERE THE ICON ] </input-character-checker>`** tag.
+2. Activate and position it via the attribute **`with-icon`**. Values are **`left`** or **`right`** for the position.
+3. If the icon should be clickable like a button, add the attribute `event-icon` with the value **`on`**.
+
+Example:
+
+```html
+<input-character-checker with-icon="left" event-icon="on" bg-icon="#ffffff">
+  <svg xmlns="http://www.w3.org/2000/svg" style="width: 24px; height: 28px; fill: #af3c3c" viewBox="0 0 512 512">
+    <path
+      d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"
+    />
+  </svg>
+</input-character-checker>
+```
+
+To add an Event Listener to the icon see **Props -> `iconField**`\*\*.
+
 ## With JavaScript
 
 You can also set the attributes with JavaScript. Do this with the `setAttribute()` method. To get the value of an attribute use the `getAttribute()` method.
@@ -211,6 +258,8 @@ You can design:
 - `textfield`
 - `count-output`
 - `message`
+- `icon-left`
+- `icon-right`
 
 Here are some simple examples:
 
@@ -225,6 +274,17 @@ input-character-checker::part(count-output) {
 
 input-character-checker::part(message) {
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+/* For the icon container */
+/* left icon: */
+input-character-checker::part(icon-left) {
+  border: 3px solid #af3c3c;
+}
+/* right icon: */
+input-character-checker::part(icon-right) {
+  border: 3px solid #af3c3c;
+  background-color: rgb(212, 212, 212);
 }
 ```
 

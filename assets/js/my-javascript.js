@@ -4,7 +4,7 @@
   // =========================
   // 	DOM
   const DOM = {};
-  // 3. - 13. Example: select the "input-character-checker"
+  // Select the "input-character-checker"
   DOM.inputCharacterChecker_Demo_1 = document.querySelector('input-character-checker.demo_1');
   DOM.inputCharacterChecker_Demo_2 = document.querySelector('input-character-checker.demo_2');
   DOM.inputCharacterChecker_Demo_3 = document.querySelector('input-character-checker.demo_3');
@@ -14,6 +14,8 @@
   DOM.inputCharacterChecker_Demo_8 = document.querySelector('input-character-checker.demo_8');
   DOM.inputCharacterChecker_Demo_9 = document.querySelector('input-character-checker.demo_9');
   DOM.inputCharacterChecker_Demo_10 = document.querySelector('input-character-checker.demo_10');
+  DOM.inputCharacterChecker_Demo_14 = document.querySelector('input-character-checker.demo_14');
+  DOM.inputCharacterChecker_Demo_17 = document.querySelector('input-character-checker.demo_17');
 
   // 5. Example: select the reset button
   DOM.btnReset_1 = document.querySelector('.btn-reset-1');
@@ -57,6 +59,24 @@
 
     // 13. Example: add the event to only numbers with the onlyNumbers() method
     DOM.inputCharacterChecker_Demo_10.textField.addEventListener('event-input-textfield', allowOnlyNumbers);
+
+    // 14. Example: textarea + icon + event
+    DOM.inputCharacterChecker_Demo_14.iconField.addEventListener('event-icon-button', (e) => {
+      console.log('Input value:', e.detail);
+      console.log('Input length:', e.detail.length);
+      console.log('Input icon container:', e.currentTarget);
+
+      // do something...
+    });
+
+    // 17. Example: input + icon + event
+    DOM.inputCharacterChecker_Demo_17.iconField.addEventListener('event-icon-button', (e) => {
+      console.log('Input value:', e.detail);
+      console.log('Input length:', e.detail.length);
+      console.log('Input icon container:', e.currentTarget);
+
+      // do something...
+    });
   };
 
   // =========================
