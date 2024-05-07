@@ -214,13 +214,13 @@ Checks whether the text in the text field is a valid email address. Returns `tru
 
 Generates a slug from the text. See 12. example.
 
-## Using icons
+## Using icons or text
 
 It is very simple.
 
-1. Implement your desired icon within the **`<input-character-checker> [ HERE THE ICON ] </input-character-checker>`** tag.
+1. Implement your desired icon within the **`<input-character-checker> [ HERE THE ICON / TEXT ] </input-character-checker>`** tag.
 2. Activate and position it via the attribute **`with-icon`**. Values are **`left`** or **`right`** for the position.
-3. If the icon should be clickable like a button, add the attribute `event-icon` with the value **`on`**.
+3. If the icon or text should be clickable like a button, add the attribute `event-icon` with the value **`on`**.
 
 Example:
 
@@ -234,7 +234,9 @@ Example:
 </input-character-checker>
 ```
 
-To add an Event Listener to the icon see **Props -> `iconField`**.
+See 14. - 17. example.
+
+To add an Event Listener to the icon see **Props -> `iconField`**. See 14. + 17. example.
 
 ## With JavaScript
 
