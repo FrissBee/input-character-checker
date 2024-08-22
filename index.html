@@ -6,7 +6,7 @@
     <title>Input Character Checker</title>
 
     <!-- 1. Import "input-input-character-checker.js" file -->
-    <script src="./assets/js/input-character-checker_1.1.0.js" defer></script>
+    <script src="./assets/js/input-character-checker_1.2.0.js" defer></script>
 
     <!-- 2. Implement your own JavaScript file -->
     <script src="./assets/js/my-javascript.js" defer></script>
@@ -25,7 +25,7 @@
         padding: 0;
       }
       .top {
-        padding: 10px;
+        padding: 2px 0 10px;
         background-color: #f5f5f5;
       }
       .container-top {
@@ -51,7 +51,8 @@
         padding: 0 4px;
         border-radius: 4px;
       }
-      .btn-reset {
+      .btn-reset,
+      .btn-check-password {
         text-align: center;
         text-decoration: none;
         vertical-align: middle;
@@ -76,6 +77,12 @@
         width: 50px;
         padding: 2px;
       }
+
+      /* For 18. Example */
+      .check-icon {
+        margin-top: 4px;
+        font-size: 16px;
+      }
     </style>
   </head>
   <body>
@@ -83,8 +90,10 @@
       <div class="top">
         <div class="container-top">
           <h1>Input Character Checker</h1>
-          <p>Download on <a href="https://github.com/FrissBee/input-character-checker" target="_blank" rel="noopener noreferrer">GitHub</a></p>
-          <p>Created by <a href="https://frissbee.de/" target="_blank" rel="noopener noreferrer">FrissBee.de</a></p>
+          <p>
+            Download on <a href="https://github.com/FrissBee/input-character-checker" target="_blank" rel="noopener noreferrer">GitHub</a><br />
+            Created by <a href="https://frissbee.de/" target="_blank" rel="noopener noreferrer">FrissBee.de</a>
+          </p>
         </div>
       </div>
 
@@ -310,7 +319,7 @@
 
         <hr />
 
-        <h3>17. <code>input:text</code> with event on icon</h3>
+        <h3>17. <code>input:text</code> with event on icon / text</h3>
         <input-character-checker
           class="demo_17"
           input-field="input"
@@ -322,6 +331,26 @@
         >
           <div style="color: #af3c3c"><b>search</b></div>
         </input-character-checker>
+
+        <hr />
+
+        <h3>18. <code>input:text</code> to <code>input:password</code> as password checker</h3>
+        <input-character-checker
+          class="demo_18"
+          length-character="10"
+          input-field="input"
+          length-character="8"
+          display-count-output="hide"
+          type-input="password"
+          display-bar="hide"
+          with-icon="right"
+          event-icon="on"
+        ></input-character-checker>
+        <div class="check-icon" style="margin-top: 14px"><span class="check-icon-1"></span> At least 10 characters</div>
+        <div class="check-icon"><span class="check-icon-2"></span> At least 1 number</div>
+        <div class="check-icon"><span class="check-icon-3"></span> At least 1 upper case letter</div>
+        <div class="check-icon"><span class="check-icon-4"></span> At least 1 special char</div>
+        <div style="margin-top: 20px"><button class="btn-check-password">send</button></div>
       </div>
     </main>
   </body>

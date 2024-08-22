@@ -30,11 +30,11 @@ Implement the Input Character Checker in your project:
 
 **1. Step - download and add**
 
-Download or clone the repo and add the file `input-character-checker_1.1.0.js` into your project.
+Download or clone the repo and add the file `input-character-checker_1.2.0.js` into your project.
 
 **2. Step - implementation**
 
-Include the `input-character-checker_1.1.0.js` file in the corresponding HTML or PHP file with `<script src="./path-to-the-file/input-character-checker_1.1.0.js" defer></script>` in the `<head>`-Tag.
+Include the `input-character-checker_1.2.0.js` file in the corresponding HTML or PHP file with `<script src="./path-to-the-file/input-character-checker_1.2.0.js" defer></script>` in the `<head>`-Tag.
 
 **3. Step - insert the input-character-checker HTML tag**
 
@@ -65,7 +65,7 @@ That`s it.
     <title>Input Character Checker</title>
 
     <!-- 1. Import "input-input-character-checker.js" file -->
-    <script src="./assets/js/input-character-checker_1.1.0.js" defer></script>
+    <script src="./assets/js/input-character-checker_1.2.0.js" defer></script>
   </head>
   <body>
     <main>
@@ -214,6 +214,14 @@ Checks whether the text in the text field is a valid email address. Returns `tru
 
 Generates a slug from the text. See 12. example.
 
+#### `checkIsOneUpperCase()`
+
+Checks whether the input value contains at least one capital letter. Returns `true` or `false`. Can be used for a password input field, for example. See 18. example
+
+#### `checkInputLength()`
+
+Checks whether the length of the input value has at least the number of the `length-character` attribute. If the length of the input value is less, `false` is returned; if it is equal to or greater, `true` is returned. Can be used for a password input field, for example. See 18. example
+
 ## Using icons or text
 
 It is very simple.
@@ -321,7 +329,7 @@ if($_POST){
 <html lang="de">
   <head>
     <!-- 1. Import "input-character-checker_1.0.0" file -->
-    <script src="./assets/js/input-character-checker_1.1.0.js" defer></script>
+    <script src="./assets/js/input-character-checker_1.2.0.js" defer></script>
 
     <!-- 2. Implement your own JavaScript file -->
     <script src="./assets/js/my-javascript.js" defer></script>
