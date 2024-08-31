@@ -337,7 +337,7 @@ if(isset($_POST['value-hidden'])){
 <!DOCTYPE html>
 <html lang="de">
   <head>
-    <!-- 1. Import "input-character-checker_1.0.0" file -->
+    <!-- 1. Import "input-character-checker_1.3.0.js" file -->
     <script src="./assets/js/input-character-checker_1.3.0.js" defer></script>
 
     <!-- 2. Implement your own JavaScript file -->
