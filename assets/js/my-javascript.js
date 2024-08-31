@@ -29,10 +29,10 @@
   DOM.inputCharacterChecker_Demo_18 = document.querySelector('input-character-checker.demo_18');
 
   // 18. Example: check input for password
-  DOM.checkIcon_1 = document.querySelector('span.check-icon-1');
-  DOM.checkIcon_2 = document.querySelector('span.check-icon-2');
-  DOM.checkIcon_3 = document.querySelector('span.check-icon-3');
-  DOM.checkIcon_4 = document.querySelector('span.check-icon-4');
+  DOM.checkIcon_1 = document.querySelector('span.check-icon-length');
+  DOM.checkIcon_2 = document.querySelector('span.check-icon-nbr');
+  DOM.checkIcon_3 = document.querySelector('span.check-icon-upper');
+  DOM.checkIcon_4 = document.querySelector('span.check-icon-special');
   DOM.btnCheckPassword = document.querySelector('button.btn-check-password');
 
   // 5. Example: select the reset button
@@ -102,7 +102,10 @@
     DOM.checkIcon_2.innerHTML = unChecked;
     DOM.checkIcon_3.innerHTML = unChecked;
     DOM.checkIcon_4.innerHTML = unChecked;
-    DOM.inputCharacterChecker_Demo_18.iconField.addEventListener('event-icon-button', togglePassword);
+    DOM.inputCharacterChecker_Demo_18.iconField.addEventListener('event-icon-button', (e) => {
+      // Parameter 3. 4.: 'password' + 'text' are default values
+      DOM.inputCharacterChecker_Demo_18.toggleIconAndType(eyeOpen, eyeClosed, 'password', 'text');
+    });
     DOM.inputCharacterChecker_Demo_18.textField.addEventListener('event-input-textfield', checkPassword);
     DOM.btnCheckPassword.addEventListener('click', sendPassword);
   };
@@ -221,18 +224,6 @@
   };
 
   // 18. Example: check input for password
-  const togglePassword = (e) => {
-    isTogglePassword = !isTogglePassword;
-
-    if (isTogglePassword === true) {
-      DOM.inputCharacterChecker_Demo_18.innerHTML = eyeOpen;
-      DOM.inputCharacterChecker_Demo_18.setAttribute('type-input', 'password');
-    } else {
-      DOM.inputCharacterChecker_Demo_18.innerHTML = eyeClosed;
-      DOM.inputCharacterChecker_Demo_18.setAttribute('type-input', 'text');
-    }
-  };
-
   const checkPassword = (e) => {
     // At least 10 characters
     if (DOM.inputCharacterChecker_Demo_18.checkInputLength() === true) {

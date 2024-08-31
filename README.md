@@ -1,20 +1,22 @@
 # Input Character Checker
 
-With this repo you can easily and quickly create a text field that counts the letters and can do a lot more.
+With this repo, you can quickly and easily create an input field that contains a number of functions that you need again and again.
 
-The number of letters entered is displayed via a progress bar and a counter (both can be switched off).
+For example: it should be checked whether the input is a valid email, or only numbers may be entered, or only a certain number of letters, which should be displayed via a progress bar.
 
-The design of the Input Character Checker can be customized.
+Basically, you can choose between `textarea` and `input`.
 
-You can choose whether you want to use an `input:text` or a `textarea` as an text field. Both can be provided with or without an **icon** on the left or right side.
+Both can be provided with or without an icon on the left or right side.
+
+With `input` you can also specify the `type`.
 
 It is possible to display several Input Character Checkers on one page. They are completely independent of each other.
 
-This repo contains 18 examples and all the files you need to integrate the Input Character Checker into your project.
+This repo all the files you need to integrate the Input Character Checker into your project.
 
-**See the comments in the files and the examples for more information.**
+**See the comments in the files and the examples and templates for more information.**
 
-### Notice
+#### Notice
 
 You can also use the Input Character Checker as a "normal" text field and use the functions (see below) so that you do not have to implement them again and again in different projects.
 
@@ -30,11 +32,11 @@ Implement the Input Character Checker in your project:
 
 **1. Step - download and add**
 
-Download or clone the repo and add the file `input-character-checker_1.2.0.js` into your project.
+Download or clone the repo and add the file `input-character-checker_1.3.0.js` into your project.
 
 **2. Step - implementation**
 
-Include the `input-character-checker_1.2.0.js` file in the corresponding HTML or PHP file with `<script src="./path-to-the-file/input-character-checker_1.2.0.js" defer></script>` in the `<head>`-Tag.
+Include the `input-character-checker_1.3.0.js` file in the corresponding HTML or PHP file with `<script src="./path-to-the-file/input-character-checker_1.3.0.js" defer></script>` in the `<head>`-Tag.
 
 **3. Step - insert the input-character-checker HTML tag**
 
@@ -52,7 +54,9 @@ For example, change the text field from `textarea` (default) to an `input:text` 
 <input-character-checker input-field="input"></input-character-checker>
 ```
 
-That`s it.
+**5. Use the functions**
+
+The Input Character Checker contains a number of functions (see below) that you will need again and again. This can be very helpful.
 
 ## Quick view
 
@@ -65,7 +69,7 @@ That`s it.
     <title>Input Character Checker</title>
 
     <!-- 1. Import "input-input-character-checker.js" file -->
-    <script src="./assets/js/input-character-checker_1.2.0.js" defer></script>
+    <script src="./assets/js/input-character-checker_1.3.0.js" defer></script>
   </head>
   <body>
     <main>
@@ -158,7 +162,7 @@ document.querySelector('input-character-checker').textField.addEventListener('ev
 
 #### `iconField`
 
-The icon can be accessed with the prop `iconField` and thus an event listener can be added, for example. Use the event `event-icon-button` for this. The value of the text field you get over `detail`. See 14. + 17. example.
+The icon can be accessed with the prop `iconField` and thus an event listener can be added, for example. Use the event `event-icon-button` for this. The value of the text field you get over `detail`. See 14. + 18. example.
 
 Example:
 
@@ -214,13 +218,17 @@ Checks whether the text in the text field is a valid email address. Returns `tru
 
 Generates a slug from the text. See 12. example.
 
-#### `checkIsOneUpperCase()`
+#### `checkIsOneUpperCase(value)`
 
 Checks whether the input value contains at least one capital letter. Returns `true` or `false`. Can be used for a password input field, for example. See 18. example
 
 #### `checkInputLength()`
 
 Checks whether the length of the input value has at least the number of the `length-character` attribute. If the length of the input value is less, `false` is returned; if it is equal to or greater, `true` is returned. Can be used for a password input field, for example. See 18. example
+
+#### `toggleIconAndType(iconOne, iconTwo, typeOne = 'password', typeTwo = 'text')`
+
+If the input field with the `with-icon` attribute has an icon and the `event-icon` attribute is set to `on`, the `toggleIconAndType()` function can be used to toggle between two icons and the type of the input field. This is useful if, for example, you have a password field and want to toggle between the types `password` and `text` by clicking on the icon. See 18. example and the templates.
 
 ## Using icons or text
 
@@ -242,7 +250,7 @@ Example:
 </input-character-checker>
 ```
 
-See 14. - 17. example.
+See 14. - 18. example.
 
 To add an Event Listener to the icon see **Props -> `iconField`**. See 14. + 17. example.
 
@@ -313,11 +321,12 @@ Here is a (simplified) example for `$_POST`:
 **The PHP code**
 
 ```php
-if($_POST){
-  var_dump($_POST);
-  echo $_POST['my-input-value'];
+if(isset($_POST['value-hidden'])){
 
-  // do something with the value of $_POST['my-input-value']
+  var_dump($_POST['value-hidden']);
+
+  // do something with the value of $_POST['value-hidden']
+
 }
 
 ```
@@ -329,17 +338,19 @@ if($_POST){
 <html lang="de">
   <head>
     <!-- 1. Import "input-character-checker_1.0.0" file -->
-    <script src="./assets/js/input-character-checker_1.2.0.js" defer></script>
+    <script src="./assets/js/input-character-checker_1.3.0.js" defer></script>
 
     <!-- 2. Implement your own JavaScript file -->
     <script src="./assets/js/my-javascript.js" defer></script>
   </head>
   <body>
     <main>
-      <!-- 3. Implement "input-character-checker" Tag -->
+      <!-- 3. Implement "input-character-checker" tag -->
+      <!-- The “input-character-checker” tag can of course also be implemented within the “form” tag -->
       <input-character-checker
         class="demo"
         input-field="input"
+        value-field="<?= isset($_POST['input-hidden']) ? $_POST['input-hidden'] : '' ?>"
         length-character="40"
         display-bar="hide"
         display-count-output="hide"
@@ -347,7 +358,7 @@ if($_POST){
 
       <!-- 4. Implement the "form"-Tag and the "input:hidden" Field -->
       <form method="post">
-        <input class="for-demo" type="hidden" name="my-input-value" value="<?= isset($_POST['my-input-value']) ? $_POST['my-input-value'] : '' ?>" />
+        <input class="input-hidden" type="hidden" name="value-hidden" value="<?= isset($_POST['input-hidden']) ? $_POST['input-hidden'] : '' ?>" />
         <button class="btn btn-primary mt-4 btn-submit" type="submit">click</button>
       </form>
     </main>
@@ -362,18 +373,31 @@ if($_POST){
 
 (() => {
   const DOM = {};
-  DOM.demo = document.querySelector('.demo'); // => the <input-character-checker></input-character-checker> Element
-  DOM.forDemo = document.querySelector('.for-demo'); // => the "input:hidden" element
-  DOM.btnSubmit = document.querySelector('.btn-submit'); // => the "submit" button
+
+  // the <input-character-checker></input-character-checker> Element
+  DOM.charChecker = document.querySelector('input-character-checker.demo');
+
+  // the "input:hidden" element
+  DOM.inputHidden = document.querySelector('.input-hidden');
+
+  // the "submit" button
+  DOM.btnSubmit = document.querySelector('.btn-submit');
 
   const init = () => {
-    DOM.demo.textField.value = DOM.forDemo.value;
-
-    DOM.demo.textField.addEventListener('event-input-textfield', valueToHiddenElement);
+    DOM.charChecker.textField.addEventListener('event-input-textfield', valueToHiddenElement);
+    DOM.btnSubmit.addEventListener('click', checkInput);
   };
 
   const valueToHiddenElement = (e) => {
-    DOM.forDemo.value = e.currentTarget.value;
+    DOM.inputHidden.value = e.currentTarget.value;
+  };
+
+  const checkInput = (e) => {
+    if (DOM.charChecker.textField.value.trim() === '') {
+      e.preventDefault();
+
+      // do something...
+    }
   };
 
   init();
