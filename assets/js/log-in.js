@@ -32,9 +32,8 @@
     DOM.passwordInput.innerHTML = eyeOpen;
 
     DOM.emailInput.textField.addEventListener('event-input-textfield', (e) => {
-      setHiddenElement(e, DOM.emailHidden);
-      DOM.emailInput.textField.style.border = borderDefault;
-      DOM.emailOutput.style.display = 'none';
+      DOM.emailInput.setHiddenElement(DOM.emailHidden);
+      setInputAndOutputToDefault(DOM.emailInput.textField, DOM.emailOutput, borderDefault);
     });
 
     DOM.passwordInput.iconField.addEventListener('event-icon-button', (e) => {
@@ -42,7 +41,7 @@
     });
 
     DOM.passwordInput.textField.addEventListener('event-input-textfield', (e) => {
-      setHiddenElement(e, DOM.passwordHidden);
+      DOM.passwordInput.setHiddenElement(DOM.passwordHidden);
       setInputAndOutputToDefault(DOM.passwordInput.textField, DOM.passwordOutput, borderDefault);
     });
 
@@ -51,10 +50,6 @@
 
   // =========================
   // 	FUNCTIONS
-  const setHiddenElement = (e, elem) => {
-    elem.value = e.currentTarget.value;
-  };
-
   const setInputAndOutputToDefault = (elemInput, elemOutput, borderDefault) => {
     elemInput.style.border = borderDefault;
     elemOutput.style.display = 'none';

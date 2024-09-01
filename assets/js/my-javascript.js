@@ -235,7 +235,7 @@
     }
 
     // At least 1 number
-    if (DOM.inputCharacterChecker_Demo_18.checkNumber(e.currentTarget.value) === true) {
+    if (DOM.inputCharacterChecker_Demo_18.checkNumber() === true) {
       DOM.checkIcon_2.innerHTML = checked;
       isCorrectPassword.nbr = true;
     } else {
@@ -244,7 +244,7 @@
     }
 
     // At least 1 upper case letter
-    if (DOM.inputCharacterChecker_Demo_18.checkIsOneUpperCase(e.currentTarget.value) === true) {
+    if (DOM.inputCharacterChecker_Demo_18.checkIsOneUpperCase() === true) {
       DOM.checkIcon_3.innerHTML = checked;
       isCorrectPassword.upperCase = true;
     } else {
@@ -253,7 +253,7 @@
     }
 
     // At least 1 special char
-    if (DOM.inputCharacterChecker_Demo_18.checkSpecial(e.currentTarget.value) === true) {
+    if (DOM.inputCharacterChecker_Demo_18.checkSpecial() === true) {
       DOM.checkIcon_4.innerHTML = checked;
       isCorrectPassword.specialChar = true;
     } else {

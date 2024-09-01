@@ -46,7 +46,7 @@
     DOM.checkIcon_special.innerHTML = unChecked;
 
     DOM.emailInput.textField.addEventListener('event-input-textfield', (e) => {
-      setHiddenElement(e, DOM.emailHidden);
+      DOM.emailInput.setHiddenElement(DOM.emailHidden);
       setInputAndOutputToDefault(DOM.emailInput.textField, DOM.emailOutput, borderDefault);
     });
 
@@ -56,7 +56,7 @@
 
     DOM.passwordInput.textField.addEventListener('event-input-textfield', (e) => {
       checkPassword(e);
-      setHiddenElement(e, DOM.passwordHidden);
+      DOM.passwordInput.setHiddenElement(DOM.passwordHidden);
       setInputAndOutputToDefault(DOM.passwordInput.textField, DOM.passwordOutput, borderDefault);
     });
 
@@ -65,10 +65,6 @@
 
   // =========================
   // 	FUNCTIONS
-  const setHiddenElement = (e, elem) => {
-    elem.value = e.currentTarget.value;
-  };
-
   const setInputAndOutputToDefault = (elemInput, elemOutput, borderDefault) => {
     elemInput.style.border = borderDefault;
     elemOutput.style.display = 'none';
@@ -83,22 +79,22 @@
     // At least characters
     DOM.checkIcon_length.innerHTML = DOM.passwordInput.checkInputLength() === true ? checked : unChecked;
     // At least 1 number
-    DOM.checkIcon_nbr.innerHTML = DOM.passwordInput.checkNumber(e.currentTarget.value) === true ? checked : unChecked;
+    DOM.checkIcon_nbr.innerHTML = DOM.passwordInput.checkNumber() === true ? checked : unChecked;
     // At least 1 upper case letter
-    DOM.checkIcon_upper.innerHTML = DOM.passwordInput.checkIsOneUpperCase(e.currentTarget.value) === true ? checked : unChecked;
+    DOM.checkIcon_upper.innerHTML = DOM.passwordInput.checkIsOneUpperCase() === true ? checked : unChecked;
     // At least 1 special char
-    DOM.checkIcon_special.innerHTML = DOM.passwordInput.checkSpecial(e.currentTarget.value) === true ? checked : unChecked;
+    DOM.checkIcon_special.innerHTML = DOM.passwordInput.checkSpecial() === true ? checked : unChecked;
   };
 
   const isPasswordCorrect = (elem) => {
     // At least characters
     if (DOM.passwordInput.checkInputLength() === false) return false;
     // At least 1 number
-    if (DOM.passwordInput.checkNumber(elem.value) === false) return false;
+    if (DOM.passwordInput.checkNumber() === false) return false;
     // At least 1 upper case letter
-    if (DOM.passwordInput.checkIsOneUpperCase(elem.value) === false) return false;
+    if (DOM.passwordInput.checkIsOneUpperCase() === false) return false;
     // At least 1 special char
-    if (DOM.passwordInput.checkSpecial(elem.value) === false) return false;
+    if (DOM.passwordInput.checkSpecial() === false) return false;
 
     return true;
   };
