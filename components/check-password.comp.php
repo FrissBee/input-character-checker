@@ -6,16 +6,16 @@
         class="password-input"
         input-field="input"
         length-character="8"
-        display-bar="hide"
-        display-count-output="hide"
+        disable-bar
+        disable-bar
+        disable-count-output
         type-input="password"
-        required-field="required"
-        color-message-danger="red"
         with-icon="right"
-        event-icon="on"
+        event-icon
+        color-message-success="red"
+        display-message="block"
         placeholder-field="Your password..."
       >
     </input-character-checker>
-    <div class="text-danger mt-2 password-output" style="display: none">Please enter your password</div>
   </div>
 </div>

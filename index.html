@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="./assets/css/main.min.css" />
 
     <!-- 1. Import "input-input-character-checker.js" file -->
-    <script src="./assets/js/input-character-checker_1.3.2.js" defer></script>
+    <script src="./assets/js/input-character-checker_2.0.0.js"></script>
 
     <!-- 2. Implement your own JavaScript file -->
     <script src="./assets/js/my-javascript.js" defer></script>
@@ -109,7 +109,7 @@
           color-message-success="#2e8ad1"
           color-message-danger="#fa0505"
           font-size-message="14px"
-          display-bar="hide"
+          disable-bar
         ></input-character-checker>
 
         <div style="margin-top: 20px">
@@ -125,7 +125,7 @@
           placeholder-field="Write something"
           bg-color-success="#5891c7"
           bg-color-danger="#c77058"
-          display-count-output="hide"
+          disable-count-output
         ></input-character-checker>
 
         <div style="margin-top: 20px">
@@ -134,8 +134,8 @@
 
         <hr />
 
-        <h3>7. <code>input:text</code> only numbers (with own JavaScript function)</h3>
-        <input-character-checker class="demo_5" input-field="input" placeholder-field="only numbers here..."></input-character-checker>
+        <h3>7. <code>input:text</code> no whitespaces</h3>
+        <input-character-checker class="demo_5" input-field="input" placeholder-field="here no whitespaces..."></input-character-checker>
 
         <hr />
 
@@ -149,7 +149,7 @@
           text-message-danger="Input maximum reached."
           color-message-success="#2e8ad1"
           color-message-danger="#fa0505"
-          char-limit="on"
+          char-limit
         ></input-character-checker>
 
         <hr />
@@ -159,8 +159,8 @@
           class="demo_6"
           input-field="input"
           length-character="400"
-          display-bar="hide"
-          display-count-output="hide"
+          disable-bar
+          disable-count-output
           type-input="email"
         ></input-character-checker>
         <div style="margin-top: 20px">
@@ -177,7 +177,7 @@
           length-character="8"
           bg-color-success="linear-gradient(to right, red, yellow)"
           bg-color-danger="linear-gradient(to right, #4de854, #0d9113)"
-          display-count-output="hide"
+          disable-count-output
           type-input="password"
         ></input-character-checker>
 
@@ -193,8 +193,8 @@
           class="demo_8"
           input-field="input"
           length-character="400"
-          display-bar="hide"
-          display-count-output="hide"
+          disable-bar
+          disable-count-output
           type-input="color"
           value-field="#af3c3c"
         ></input-character-checker>
@@ -206,8 +206,8 @@
           class="demo_9"
           input-field="input"
           length-character="400"
-          display-bar="hide"
-          display-count-output="hide"
+          disable-bar
+          disable-count-output
           placeholder-field="Enter text with whitespaces, umlauts and special characters"
         ></input-character-checker>
         <div class="get-slug-output"></div>
@@ -220,8 +220,8 @@
           input-field="input"
           length-character="100"
           placeholder-field="only numbers here..."
-          display-bar="hide"
-          display-count-output="hide"
+          disable-bar
+          disable-count-output
           display-message="block"
         ></input-character-checker>
 
@@ -234,7 +234,7 @@
         <p>See by example 14. + 17. in the console when entering in the text field and clicked on the icon.</p>
 
         <h3>14. <code>textarea</code> with event on icon</h3>
-        <input-character-checker class="demo_14" with-icon="left" event-icon="on">
+        <input-character-checker class="demo_14" with-icon="left" event-icon>
           <svg xmlns="http://www.w3.org/2000/svg" style="width: 24px; height: 24px; fill: #137c2f; margin-top: 8px" viewBox="0 0 512 512">
             <path
               d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"
@@ -245,13 +245,7 @@
         <hr />
 
         <h3>15. <code>textarea</code></h3>
-        <input-character-checker
-          class="demo_15"
-          with-icon="right"
-          display-bar="hide"
-          display-count-output="hide"
-          bg-icon="linear-gradient(#f5f5f5, #d9d9d9)"
-        >
+        <input-character-checker class="demo_15" with-icon="right" disable-bar disable-count-output bg-icon="linear-gradient(#f5f5f5, #d9d9d9)">
           <svg xmlns="http://www.w3.org/2000/svg" style="width: 24px; height: 24px; fill: #277ba6; margin-top: 8px" viewBox="0 0 512 512">
             <path
               d="M256 0a256 256 0 1 0 0 512A256 256 0 1 0 256 0zM376.9 294.6L269.8 394.5c-3.8 3.5-8.7 5.5-13.8 5.5s-10.1-2-13.8-5.5L135.1 294.6c-4.5-4.2-7.1-10.1-7.1-16.3c0-12.3 10-22.3 22.3-22.3l57.7 0 0-96c0-17.7 14.3-32 32-32l32 0c17.7 0 32 14.3 32 32l0 96 57.7 0c12.3 0 22.3 10 22.3 22.3c0 6.2-2.6 12.1-7.1 16.3z"
@@ -274,15 +268,7 @@
         <hr />
 
         <h3>17. <code>input:text</code> with event on icon / text</h3>
-        <input-character-checker
-          class="demo_17"
-          input-field="input"
-          with-icon="right"
-          event-icon="on"
-          display-bar="hide"
-          display-count-output="hide"
-          bg-icon="#d9fbff"
-        >
+        <input-character-checker class="demo_17" input-field="input" with-icon="right" event-icon disable-bar disable-count-output bg-icon="#d9fbff">
           <div style="color: #af3c3c"><b>search</b></div>
         </input-character-checker>
 
@@ -293,18 +279,40 @@
           class="demo_18"
           length-character="10"
           input-field="input"
-          length-character="8"
-          display-count-output="hide"
+          disable-count-output
+          disable-bar
           type-input="password"
-          display-bar="hide"
           with-icon="right"
-          event-icon="on"
+          event-icon
+          text-message-danger="Input maximum reached."
         ></input-character-checker>
         <div class="check-icon" style="margin-top: 14px"><span class="check-icon-length"></span> At least 10 characters</div>
         <div class="check-icon"><span class="check-icon-nbr"></span> At least 1 number</div>
         <div class="check-icon"><span class="check-icon-upper"></span> At least 1 upper case letter</div>
-        <div class="check-icon"><span class="check-icon-special"></span> At least 1 special char</div>
         <div style="margin-top: 20px"><button class="btn-check-password">send</button></div>
+
+        <hr />
+
+        <h3>19. <code>input:text</code> with icon, size: small</h3>
+        <input-character-checker class="demo_19" input-field="input" disable-count-output disable-bar with-icon="right" input-small>
+          <svg xmlns="http://www.w3.org/2000/svg" style="width: 14px; height: 14px; fill: #828282" viewBox="0 0 512 512">
+            <path
+              d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"
+            />
+          </svg>
+        </input-character-checker>
+
+        <hr />
+
+        <h3>20. <code>input:text</code> with icon, border color by no input</h3>
+        <input-character-checker class="demo_20" input-field="input" disable-count-output disable-bar with-icon="right" event-icon>
+          <svg xmlns="http://www.w3.org/2000/svg" style="width: 14px; height: 14px; fill: #828282" viewBox="0 0 512 512">
+            <path
+              d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"
+            />
+          </svg>
+        </input-character-checker>
+        <div>Click the icon without input in the text field (the border turns red), then enter something in the text field.</div>
       </div>
     </main>
   </body>

@@ -8,7 +8,6 @@
 
   DOM.passwordHidden = DOM.sectionAccount.querySelector('input[name="password-hidden"]');
   DOM.passwordInput = DOM.sectionAccount.querySelector('input-character-checker.password-input');
-  DOM.passwordOutput = DOM.sectionAccount.querySelector('div.password-output');
 
   DOM.checkIcon_length = DOM.sectionAccount.querySelector('span.check-icon-length');
   DOM.checkIcon_nbr = DOM.sectionAccount.querySelector('span.check-icon-nbr');
@@ -27,15 +26,12 @@
 
   const unChecked = `<svg xmlns="http://www.w3.org/2000/svg" style="height: 16px; width: 16px; fill: red; margin-top: -4px" viewBox="0 0 384 512"><path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/></svg>`;
 
-  const borderDefault = '1px solid #ced4da';
-
   const borderError = '1px solid red';
 
   // =========================
   // 	INIT
   const init = () => {
     DOM.passwordInput.innerHTML = eyeOpen;
-
     DOM.checkIcon_length.innerHTML = unChecked;
     DOM.checkIcon_nbr.innerHTML = unChecked;
     DOM.checkIcon_upper.innerHTML = unChecked;
@@ -46,9 +42,10 @@
     });
 
     DOM.passwordInput.textField.addEventListener('event-input-textfield', (e) => {
-      checkPassword(e);
+      checkPassword(DOM.passwordInput, DOM.checkIcon_length, DOM.checkIcon_nbr, DOM.checkIcon_upper, DOM.checkIcon_special);
       DOM.passwordInput.setHiddenElement(DOM.passwordHidden);
-      setInputAndOutputToDefault(DOM.passwordInput.textField, DOM.passwordOutput, borderDefault);
+      DOM.passwordInput.setAttribute('text-message-success', '');
+      DOM.passwordInput.setBorderToDefault();
     });
 
     DOM.btnSubmit.addEventListener('click', onSend);
@@ -56,44 +53,22 @@
 
   // =========================
   // 	FUNCTIONS
-  const setInputAndOutputToDefault = (elemInput, elemOutput, borderDefault) => {
-    elemInput.style.border = borderDefault;
-    elemOutput.style.display = 'none';
-  };
-
-  const setInputAndOutputToError = (elemInput, elemOutput, borderError) => {
-    elemInput.style.border = borderError;
-    elemOutput.style.display = 'block';
-  };
-
-  const checkPassword = (e) => {
+  const checkPassword = (elem, icon_1, icon_2, icon_3, icon_4) => {
     // At least characters
-    DOM.checkIcon_length.innerHTML = DOM.passwordInput.checkInputLength() === true ? checked : unChecked;
+    icon_1.innerHTML = elem.checkInputLength() === true ? checked : unChecked;
     // At least 1 number
-    DOM.checkIcon_nbr.innerHTML = DOM.passwordInput.checkNumber() === true ? checked : unChecked;
+    icon_2.innerHTML = elem.checkNumber() === true ? checked : unChecked;
     // At least 1 upper case letter
-    DOM.checkIcon_upper.innerHTML = DOM.passwordInput.checkIsOneUpperCase() === true ? checked : unChecked;
+    icon_3.innerHTML = elem.checkIsOneUpperCase() === true ? checked : unChecked;
     // At least 1 special char
-    DOM.checkIcon_special.innerHTML = DOM.passwordInput.checkSpecial() === true ? checked : unChecked;
-  };
-
-  const isPasswordCorrect = (elem) => {
-    // At least characters
-    if (DOM.passwordInput.checkInputLength() === false) return false;
-    // At least 1 number
-    if (DOM.passwordInput.checkNumber() === false) return false;
-    // At least 1 upper case letter
-    if (DOM.passwordInput.checkIsOneUpperCase() === false) return false;
-    // At least 1 special char
-    if (DOM.passwordInput.checkSpecial() === false) return false;
-
-    return true;
+    icon_4.innerHTML = elem.checkSpecial() === true ? checked : unChecked;
   };
 
   const onSend = (e) => {
-    if (isPasswordCorrect(DOM.passwordInput.textField) === false) {
+    if (DOM.passwordInput.isPasswordCorrect() === false) {
       e.preventDefault();
-      setInputAndOutputToError(DOM.passwordInput.textField, DOM.passwordOutput, borderError);
+      DOM.passwordInput.setAttribute('text-message-success', 'Password does not fulfill all criteria');
+      DOM.passwordInput.setBorderToError(borderError);
     }
   };
 

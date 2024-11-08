@@ -5,12 +5,13 @@
     <input-character-checker 
       class="email-input"
       input-field="input"
-      display-bar="hide"
-      display-count-output="hide"
+      disable-bar
+      disable-count-output
       type-input="email"
-      required-field="required"
       placeholder-field="Your email..."
+      text-message-success="No valid email address"
+      color-message-success="red"
+      display-message="none"
     ></input-character-checker>
-    <div class="text-danger mt-2 email-output" style="display: none">No valid email address</div>
   </div>
 </div>
