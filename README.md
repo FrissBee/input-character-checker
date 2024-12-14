@@ -32,11 +32,11 @@ Implement the Input Character Checker in your project:
 
 **1. Step - download and add**
 
-Download or clone the repo and add the file `input-character-checker_2.0.0.js` into your project.
+Download or clone the repo and add the file `input-character-checker_2.1.0.js` into your project.
 
 **2. Step - implementation**
 
-Include the `input-character-checker_2.0.0.js` file in the corresponding HTML or PHP file with `<script src="./path-to-the-file/input-character-checker_2.0.0.js"></script>` in the `<head>`-Tag.
+Include the `input-character-checker_2.1.0.js` file in the corresponding HTML or PHP file with `<script src="./path-to-the-file/input-character-checker_2.1.0.js"></script>` in the `<head>`-Tag.
 
 **3. Step - insert the input-character-checker HTML tag**
 
@@ -69,7 +69,7 @@ The Input Character Checker contains a number of functions (see below) that you 
     <title>Input Character Checker</title>
 
     <!-- 1. Import "input-input-character-checker.js" file  -->
-    <script src="./path-to-the-file/input-character-checker_2.0.0.js"></script>
+    <script src="./path-to-the-file/input-character-checker_2.1.0.js"></script>
 
     <!-- 2. Import your JS file if necessary(see the examples) -->
     <script src="./path-to-the-file/my-javascript.js"></script>
@@ -179,6 +179,10 @@ document.querySelector('input-character-checker').iconField.addEventListener('ev
 ```
 
 ## Functions
+
+#### `setInputValue(inputStr)`
+
+This function can be used to transfer text to the input field and the process bar and message are set accordingly.
 
 #### `setInputLength(number)`
 
@@ -388,8 +392,8 @@ if(isset($_POST['value-hidden'])){
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- 1. Import "input-character-checker_2.0.0.js" file -->
-    <script src="./assets/js/input-character-checker_2.0.0.js"></script>
+    <!-- 1. Import "input-character-checker_2.1.0.js" file -->
+    <script src="./assets/js/input-character-checker_2.1.0.js"></script>
 
     <!-- 2. Implement your own JavaScript file -->
     <script src="./assets/js/my-javascript.js"></script>
