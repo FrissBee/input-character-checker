@@ -11,7 +11,7 @@
     <script src="./assets/js/input-character-checker_2.1.0.js" defer></script>
 
     <!-- 2. Implement your own JavaScript file -->
-    <script src="./assets/js/change-password.js"></script>
+    <script src="./assets/js/change-password.js" defer></script>
 
     <style>
       .max-width-400 {
